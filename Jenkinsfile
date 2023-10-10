@@ -35,7 +35,7 @@ pipeline {
             echo 'deploying on kubernetes cluster'
             script{
                //sh "docker pull srinathsilla/student-survey-form:${env.BUILD_NUMBER}"
-               sh "sudo kubectl --kubeconfig /root/.kube/config set image deployment/hw2-cluster container-0=manogyana/survey-form:${BUILD_NUMBER}"
+               sh "kubectl --kubeconfig /root/.kube/config set image deployment/hw2-cluster container-0=manogyana/survey-form:${BUILD_NUMBER}"
             }
          }
       }
