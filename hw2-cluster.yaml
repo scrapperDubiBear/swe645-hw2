@@ -4,11 +4,11 @@ metadata:
   annotations:
     deployment.kubernetes.io/revision: '1'
     field.cattle.io/publicEndpoints: >-
-      [{"addresses":["172.31.89.237"],"port":30471,"protocol":"TCP","serviceName":"default:hw2-cluster-nodeport","allNodes":true}]
-  creationTimestamp: '2023-10-08T03:25:04Z'
+      [{"addresses":["172.31.86.175"],"port":31970,"protocol":"TCP","serviceName":"default:hw2-deployment-nodeport","allNodes":true}]
+  creationTimestamp: '2023-10-10T21:27:02Z'
   generation: 2
   labels:
-    workload.user.cattle.io/workloadselector: apps.deployment-default-hw2-cluster
+    workload.user.cattle.io/workloadselector: apps.deployment-default-hw2-deployment
   managedFields:
     - apiVersion: apps/v1
       fieldsType: FieldsV1
@@ -67,7 +67,7 @@ metadata:
               f:terminationGracePeriodSeconds: {}
       manager: agent
       operation: Update
-      time: '2023-10-08T03:25:05Z'
+      time: '2023-10-10T21:27:03Z'
     - apiVersion: apps/v1
       fieldsType: FieldsV1
       fieldsV1:
@@ -102,18 +102,18 @@ metadata:
       manager: kube-controller-manager
       operation: Update
       subresource: status
-      time: '2023-10-09T07:12:32Z'
-  name: hw2-cluster
+      time: '2023-10-10T21:27:22Z'
+  name: hw2-deployment
   namespace: default
-  resourceVersion: '470603'
-  uid: 4e88ceaa-31fa-4131-8e9a-af03c70ecc70
+  resourceVersion: '249223'
+  uid: 79759eed-26e6-4f3f-b8e0-f3e892f7bc1c
 spec:
   progressDeadlineSeconds: 600
   replicas: 3
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      workload.user.cattle.io/workloadselector: apps.deployment-default-hw2-cluster
+      workload.user.cattle.io/workloadselector: apps.deployment-default-hw2-deployment
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -123,12 +123,12 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        workload.user.cattle.io/workloadselector: apps.deployment-default-hw2-cluster
+        workload.user.cattle.io/workloadselector: apps.deployment-default-hw2-deployment
       namespace: default
     spec:
       affinity: {}
       containers:
-        - image: srinathsilla/student-survey-form:1.2
+        - image: manogyana/survey-form:1.1
           imagePullPolicy: Always
           name: container-0
           ports:
@@ -151,18 +151,18 @@ spec:
 status:
   availableReplicas: 3
   conditions:
-    - lastTransitionTime: '2023-10-08T03:25:04Z'
-      lastUpdateTime: '2023-10-08T03:25:23Z'
-      message: ReplicaSet "hw2-cluster-56cc8c5d48" has successfully progressed.
-      reason: NewReplicaSetAvailable
-      status: 'True'
-      type: Progressing
-    - lastTransitionTime: '2023-10-09T07:12:32Z'
-      lastUpdateTime: '2023-10-09T07:12:32Z'
+    - lastTransitionTime: '2023-10-10T21:27:22Z'
+      lastUpdateTime: '2023-10-10T21:27:22Z'
       message: Deployment has minimum availability.
       reason: MinimumReplicasAvailable
       status: 'True'
       type: Available
+    - lastTransitionTime: '2023-10-10T21:27:02Z'
+      lastUpdateTime: '2023-10-10T21:27:22Z'
+      message: ReplicaSet "hw2-deployment-c6cdc66cf" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: 'True'
+      type: Progressing
   observedGeneration: 2
   readyReplicas: 3
   replicas: 3
